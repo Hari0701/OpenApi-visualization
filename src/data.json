@@ -1,0 +1,138 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "demo1",
+        "description": "EzAPI Generated Spec - OpenAPI 3.0",
+        "version": "0.0.1"
+    },
+    "tags": [],
+    "paths": {
+        "/getClaim": {
+            "get": {
+                "operationId": "get /Retrieval",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/first-name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/Response1"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/Response2"
+                    }
+                }
+            },
+            "put": {
+                "operationId": "get /Retrieval",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/first-name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/Response1"
+                    }
+                    
+                }
+            }
+        },
+        "/getInsurance": {
+            "get": {
+                "operationId": "get /Retrieval",
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/first-name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/Response1"
+                    },
+                    "400": {
+                        "$ref": "#/components/responses/Response2"
+                    }
+                   
+                }
+            }
+           
+        }
+    },
+    "components": {
+        "parameters": {
+            "first-name": {
+                "name": "first-name",
+                "in": "header",
+                "schema": {
+                    "type": "string"
+                },
+                "required": true
+            }
+        },
+        "headers": {
+            "first-name": {
+                "schema": {
+                    "type": "string"
+                },
+                "required": true
+            }
+        },
+        "responses": {
+            "Response1": {
+                "description": "OK",
+                "headers": {
+                    "claim-number": {
+                        "schema": {
+                            "type": "string",
+                            "description": "new"
+                        }
+                    }
+                },
+                "content": {
+                    "application-json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "claim-status": {
+                                    "type": "string"
+                                },
+                                "claim-number": {
+                                    "type": "string"
+                                },
+                                "received-date": {
+                                    "type": "string",
+                                    "format": "datetime"
+                                },
+                                "amount": {
+                                    "type": "number"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "Response2": {
+                "description": "Bad Request",
+                "content": {
+                    "application-json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "check-number": {
+                                    "type": "string"
+                                },
+                                "monthlyamount": {
+                                    "type": "integer",
+                                    "description": "Rs.",
+                                    "format": "int32"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
